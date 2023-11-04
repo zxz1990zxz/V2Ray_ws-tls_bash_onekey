@@ -433,7 +433,7 @@ ssl_install() {
     fi
     judge "安装 SSL 证书生成脚本依赖"
 
-    curl https://get.acme.sh | sh -s email=admin@zxz1990zxz@163.com
+    curl https://get.acme.sh | sh -s email="zxz1990zxz@163.com"
     judge "安装 SSL 证书生成脚本"
 }
 
@@ -494,7 +494,7 @@ port_exist_check() {
         sleep 1
     fi
 }
-acme() {
+acme(--insecure) {
     "$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 
     if "$HOME"/.acme.sh/acme.sh --issue --insecure -d "${domain}" --standalone -k ec-256 --force; then
