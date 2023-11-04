@@ -494,7 +494,7 @@ port_exist_check() {
         sleep 1
     fi
 }
-acme(--insecure) {
+acme() {
     "$HOME"/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 
     if "$HOME"/.acme.sh/acme.sh --issue --insecure -d "${domain}" --standalone -k ec-256 --force; then
